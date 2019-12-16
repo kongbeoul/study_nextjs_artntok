@@ -1,6 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import GlobalStyle from '../components/GlobalStyle';
+import GlobalStyle from '../components/styled/GlobalStyle';
 
 export default class MyDocument extends Document {
 
@@ -18,9 +18,9 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <meta charset="UTF-8" />
+          <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+          <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700|Roboto:300,400,500&display=swap&subset=korean" rel="stylesheet" />
           <GlobalStyle />
           {this.props.styleTags}

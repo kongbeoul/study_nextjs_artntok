@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+.slick-dots {
+  bottom: -23px;
+  font-size: 0;
+}
+
+.slick-dots > li {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  margin: 0;
+  background-color: #ddd;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.slick-dots > li + li {
+  margin-left: 15px;
+}
+
+.slick-dots > li > button {
+  width: auto;
+  height: auto;
+  padding: 0;
+}
+
+.slick-dots > li > button:before {
+  content: none;
+}
+
+.slick-dots > .slick-active {
+  width: 15px;
+  background-color: #111;
+}

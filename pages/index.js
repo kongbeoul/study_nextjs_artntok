@@ -1,9 +1,12 @@
 import React from 'react'
-import Header from '../components/Header';
+import Layout from '../components/Layout';
+import MainFrame from '../components/MainFrame';
 
 const Home = () => (
   <div>
-    <Header />
+    <Layout>
+      <MainFrame />
+    </Layout>
   </div>
 )
 

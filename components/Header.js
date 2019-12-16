@@ -1,44 +1,78 @@
-import styled from 'styled-components';
 import Link from 'next/link';
+import styled from 'styled-components';
+import Icon from './styled/Icon';
 
-const MainFrame = styled.div`
+const Header = styled.header`
   width: 100%;
-  height: 100px;
-  position: relative;
-  border: 1px solid black;
-  font-family: 'Roboto';
-  font-weight: 500;
+  height: 56px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 
-  & > h1 {
-    display: inline-block;
+  & > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  & .Logo {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  & .util {
+    display: flex;
+    justify-content: space-between;
+
+    & > .Location {
+      margin-left: 10px;
+    }
+  }
 `
 
-const Logo = styled.a`
-  width: 59px;
-  height: 29px;
-  display: block;
-  background: url(${props => props.url}) 0 0 no-repeat;
-  background-size: 100% auto;
-  overflow: hidden;
-  text-indent: -9999px;
+const Logo = styled(Icon.withComponent("a"))`
+  width: 107px;
+  height: 17px;
   line-height: 0;
+  text-indent: -9999px;
+  overflow: hidden;
 `
 
-const Header = () => {
+const Button = Icon.withComponent("button");
+
+export default () => {
   return (
-    <MainFrame>
-    <h1 className="Logo">
-      <Link href="/">
-        <Logo url="/images/logo.png">Media4th &amp; Company Logo </Logo>
-      </Link>
-    </h1>
-    </MainFrame>
+    <Header>
+      <div>
+        <Button 
+          className="Menu"
+          url="/images/common/btn_menu.png" 
+        />
+        <h1 className="Logo">
+          <Link href="/">
+            <Logo url="/images/common/bi.png">
+              아트앤톡 로고
+            </Logo>
+          </Link>
+        </h1>
+        <div className="util">
+          <Button 
+            className="Search"
+            url="/images/common/ico_finder.png" 
+          />
+          <Button 
+            className="Location"
+            url="/images/common/ico_location.png"
+          />
+        </div>
+      </div>
+    </Header>
   )
 }
-
-export default Header;

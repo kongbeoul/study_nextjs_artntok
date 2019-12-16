@@ -19,7 +19,6 @@ const GlobalStyle = createGlobalStyle`
   select::-ms-expand {display:none;}
   .blind {position:absolute;top:0;left:0;overflow:hidden;width:0;height:0;font-size:0;line-height:0;}
   .clfix:after {content:"";display:block;clear:both;visibility:hidden;height:0;}
-
 `
 
 export default GlobalStyle;
