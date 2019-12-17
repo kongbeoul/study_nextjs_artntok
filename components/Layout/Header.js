@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Icon } from '../styled';
-import Navigation from '../navigation';
+import { Icon } from '../Styled';
+import Navigation from '../Navigation';
 
 const Header = styled.header`
   width: 100%;
