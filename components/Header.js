@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import Icon from './styled/Icon';
+import { Icon } from './styled';
+import Navigation from './Navigation';
 
 const Header = styled.header`
   width: 100%;
@@ -48,12 +50,19 @@ const Logo = styled(Icon.withComponent("a"))`
 const Button = Icon.withComponent("button");
 
 export default () => {
+  const [visible, setVisible] = useState(false);
+  
+  const onVisible = () => {
+    setVisible(!visible);
+  }
+
   return (
     <Header>
       <div>
         <Button 
           className="Menu"
-          url="/images/common/btn_menu.png" 
+          url="/images/common/btn_menu.png"
+          onClick={onVisible}
         />
         <h1 className="Logo">
           <Link href="/">
@@ -73,6 +82,7 @@ export default () => {
           />
         </div>
       </div>
+      <Navigation visible={visible} onVisible={onVisible}/>
     </Header>
   )
 }

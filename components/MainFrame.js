@@ -2,17 +2,15 @@ import styled from 'styled-components';
 import VisualSlider from './VisualSlider';
 import Section from './Section';
 import SectionSlider from './SectionSlider';
+import { Line } from './styled';
+
 
 const Contents = styled.div`
-  background-color: #ededed;
 
   & .section:first-child {
     padding-top: 79px;
   }
 
-  & .section + .section {
-    margin-top: 10px;
-  }
 `;
 
 const sliderParams = {
@@ -144,7 +142,7 @@ const spot = {
 }
 
 const superPink = {
-  className: 'spot',
+  className: 'superPink',
   itemInfo: [{
     thumbs: {
       width: 82,
@@ -214,6 +212,7 @@ export default () => {
           <SectionSlider params={sliderParams} itemInfo={standard.itemInfo} className={standard.className} />
           <SectionSlider params={sliderParams} itemInfo={spot.itemInfo} className={spot.className} />
         </Section>
+        <Line />
         <Section label="Super Pink" title="문화예술계의 새싹을 소개해드립니다 : )">
           <SectionSlider params={sliderParams} itemInfo={superPink.itemInfo} className={superPink.className} />
         </Section>
