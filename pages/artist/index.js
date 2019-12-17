@@ -1,11 +1,12 @@
 import React, { Component, createRef } from 'react';
+import Link from 'next/link';
 import cx from 'classnames';
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 import Slider from 'react-slick';
-import { Tabs, Content, Item } from '../components/Tabs';
+import { Tabs, Content, Item } from '../../components/Tabs';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import '../components/Tabs/Tab.css';
+import '../../components/Tabs/Tab.css';
 
 const anchors = ['작가명', '장르'];
 
@@ -64,6 +65,13 @@ const tabData = [[{
   display: false
 }]]
 
+const ArtistLink = ({ id, children }) => {
+  return (
+    <Link href={`/artist/[artist]`} as={`/artist/${id}`}>
+      <a>{ children }</a>
+    </Link>
+  )
+};
 
 export default class Artist extends Component {
   static getInitialProps({ pathname }) {
@@ -119,8 +127,12 @@ export default class Artist extends Component {
             {
               tabData[selectedIndex] 
               ? (
-                  tabData[selectedIndex].map(item => {
-                    return <Item key={item.id} {...item} />
+                  tabData[selectedIndex].map(({id, ...item}) => {
+                    return (
+                      <ArtistLink key={id} id={id}>
+                        <Item {...item} />
+                      </ArtistLink> 
+                    )
                   })
                 )
               : <div></div>
