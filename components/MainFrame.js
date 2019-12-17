@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import VisualSlider from './VisualSlider';
+import Visual from './Visual';
 import Section from './Section';
-import SectionSlider from './SectionSlider';
-import { Line } from './styled';
+import SectionSlider from './Section/SectionSlider';
+import { Line } from './Styled';
 
 
 const Contents = styled.div`
@@ -205,7 +205,7 @@ const superPink = {
 export default () => {
   return (
     <>
-      <VisualSlider />
+      <Visual />
       <Contents className="contents">
         <Section title="이렇게나 다양한 전시가 있어요! :D">
           <SectionSlider params={sliderParams} itemInfo={premium.itemInfo} className={premium.className} />

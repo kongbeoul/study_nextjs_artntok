@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Icon, Line } from './styled';
+import { Icon, Line } from '../Styled';
 import UserInfo from './UserInfo';
 import QuickMenu from './QuickMenu';
 import NavigationMenu from './NavigationMenu';

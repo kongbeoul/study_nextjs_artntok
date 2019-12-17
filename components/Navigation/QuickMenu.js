@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Icon } from './styled';
+import { Icon } from '../Styled';
 
 const QuickMenuWrapper = styled.ul`
   width: 100%;

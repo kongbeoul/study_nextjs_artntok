@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from './Header';
-import Footer, { footerMaxHeight } from './Footer';''
+import Footer, { footerMaxHeight } from './Footer';
 
 const Layout = styled.div`
   width: 100%;
