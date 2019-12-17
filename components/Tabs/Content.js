@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import Item from './Item';
 
 const Wrapper = styled.div`
   padding: 0 20px;
@@ -15,12 +14,10 @@ const Wrapper = styled.div`
   }
 `;
 
-export default memo(({ items }) => {
+export default memo(({ children }) => {
   return (
     <Wrapper>
-      {
-        items.map(item => <Item key={item.id} {...item} />)
-      }
+      { children }
     </Wrapper>
   )
 });
