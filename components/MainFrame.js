@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 import Visual from './Visual';
 import Section from './Section';
-import Item from './Item';
+import Item from './MainItem';
 import { Line } from './Styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

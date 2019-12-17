@@ -1,19 +1,18 @@
 import styled from 'styled-components';
+import Logo from './Logo';
+import Icon from './Icon';
+import Line from './Line';
+import Menu from './Menu';
+import Search from './Search';
+import Location from './Location';
+import Title from './Title'
 
-export const Icon = styled.span`
-  width: 24px;
-  height: 24px;
-  display: block;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-image: url(${ props => props.url });
-`;
-
-export const Line = styled.hr`
-  width: 100%;
-  height: 10px;
-  display: block;
-  background-color: #ededed;
-`;
-
+export {
+  Logo,
+  Icon,
+  Line,
+  Menu,
+  Search,
+  Location,
+  Title
+}

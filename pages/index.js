@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Layout from '../components/Layout';
 import MainFrame from '../components/MainFrame';
 
-const Home = () => (
-  <div>
-    <Layout>
-      <MainFrame />
-    </Layout>
-  </div>
-)
+export default class Home extends Component {
+  static getInitialProps({ pathname }) {
+    return { pathname }
+  }
 
-export default Home
+  render() {
+    const { pathname } = this.props; 
+    return (
+      <>
+        <Layout pathname={pathname} >
+          <MainFrame />
+        </Layout>
+      </>
+    ) 
+  }
+}
+

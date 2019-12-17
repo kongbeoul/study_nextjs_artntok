@@ -54,7 +54,12 @@ const BottomMenu = styled.div`
 `
 
 
-const MenuItemData = ['Exhibition', 'Artist', 'Gallery', 'Puzzle', 'Superb Pink'];
+const MenuItemData = [
+  'Exhibition', 
+  'Artist', 
+  'Gallery', 
+  'Puzzle', 'Superb Pink'
+];
 
 export default ({ height }) => {
   return (
@@ -64,7 +69,7 @@ export default ({ height }) => {
           MenuItemData.map((v, i) => {
             return (
               <MenuItem key={ v + i }>
-                <Link href="/">
+                <Link href="/artist">
                   <a>{ v }</a>
                 </Link>
               </MenuItem>

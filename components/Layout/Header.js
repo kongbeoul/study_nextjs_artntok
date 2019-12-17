@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { Icon } from '../Styled';
+import { last } from 'lodash';
+import { Logo, Menu, Search, Location, Title } from '../Styled';
 import Navigation from '../Navigation';
+
+import { NAMESPACE, PAGES } from '../config';
 
 const Header = styled.header`
   width: 100%;
@@ -22,7 +25,7 @@ const Header = styled.header`
     position: relative;
   }
 
-  & .Logo {
+  & .tit {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -39,47 +42,38 @@ const Header = styled.header`
   }
 `
 
-const Logo = styled(Icon.withComponent("a"))`
-  width: 107px;
-  height: 17px;
-  line-height: 0;
-  text-indent: -9999px;
-  overflow: hidden;
-`
-
-const Button = Icon.withComponent("button");
-
-export default () => {
+export default ({ pathname }) => {
   const [visible, setVisible] = useState(false);
-  
+  const [active, setActive] = useState(PAGES.includes(pathname));
+
   const onVisible = () => {
     setVisible(!visible);
-  }
+  };
 
   return (
     <Header>
       <div>
-        <Button 
-          className="Menu"
-          url="/images/common/btn_menu.png"
-          onClick={onVisible}
-        />
-        <h1 className="Logo">
-          <Link href="/">
-            <Logo url="/images/common/bi.png">
-              아트앤톡 로고
-            </Logo>
-          </Link>
+        <Menu onVisible={onVisible} active={active} />
+        <h1 className="tit">
+        {
+          active 
+          ? (
+              <Title>
+                {
+                  (last(PAGES[PAGES.indexOf(pathname)].split("/"))).toUpperCase()
+                }
+              </Title>
+            )
+          : (
+              <Link href="/">
+                <Logo className="Logo">{ NAMESPACE }</Logo>
+              </Link>
+            )
+        }
         </h1>
         <div className="util">
-          <Button 
-            className="Search"
-            url="/images/common/ico_finder.png" 
-          />
-          <Button 
-            className="Location"
-            url="/images/common/ico_location.png"
-          />
+          <Search active={active} />
+          <Location active={active} />
         </div>
       </div>
       <Navigation visible={visible} onVisible={onVisible}/>

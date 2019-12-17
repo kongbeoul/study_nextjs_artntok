@@ -10,14 +10,17 @@ const Layout = styled.div`
 
   & #container {
     min-height: calc(100vh - ${footerMaxHeight}px);
+    ${ 
+      props => props.sub && `padding:56px 0 0 0;box-sizing:border-box;`
+    }
   }
 `;
 
-export default ({ children }) => {
+export default ({ children, pathname, sub }) => {
   return (
-    <Layout>
-      <Header />
-      <div id="container">
+    <Layout sub={sub}>
+      <Header pathname={pathname}/>
+      <div id="container"> 
         {children}
       </div>
       <Footer />
