@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Heart from './HeartButton';
-import Comment from './CommentButton';
+import Heart from '../Styled/Heart';
+import Comment from '../Styled/Comment';
 
 const VisualItem = styled.div`
   width: 100%;

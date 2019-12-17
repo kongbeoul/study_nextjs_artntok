@@ -26,24 +26,24 @@ const Section = styled.section`
     margin-top: 8px; 
   }
 
-  & .tit + .section-slider {
+  & .tit + .slick-slider {
     margin-top: 39px;
   }
 
-  & .section-slider + .section-slider {
+  & .slick-slider + .slick-slider {
     margin-top: 50px;
     padding-top: 50px;
     border-top: 1px solid #ededed;
     box-sizing: border-box;
   }
 
-  & .section-slider {
+  & .slick-slider {
     & .item {
       margin-right: 8px;
     }
   }
 
-  & .section-slider.superPink {
+  & .slick-slider.superPink {
     & .item {
       margin-right: 16px;
     }

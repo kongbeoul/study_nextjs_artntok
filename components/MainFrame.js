@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-import Visual from './Visual';
-import Section from './Section';
-import SectionSlider from './Section/SectionSlider';
-import { Line } from './Styled';
-
+import Slider from 'react-slick';
+import Visual from './visual';
+import Section from './section';
+import Item from './item';
+import { Line } from './styled';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Contents = styled.div`
 
@@ -208,13 +210,37 @@ export default () => {
       <Visual />
       <Contents className="contents">
         <Section title="이렇게나 다양한 전시가 있어요! :D">
-          <SectionSlider params={sliderParams} itemInfo={premium.itemInfo} className={premium.className} />
-          <SectionSlider params={sliderParams} itemInfo={standard.itemInfo} className={standard.className} />
-          <SectionSlider params={sliderParams} itemInfo={spot.itemInfo} className={spot.className} />
+          <Slider {...sliderParams} className={`slick-slider ${premium.className}`}>
+            {
+              premium.itemInfo.map((item, i) => {
+                return <Item key={i} {...item} />
+              })
+            }
+          </Slider>
+          <Slider {...sliderParams} className={`slick-slider ${standard.className}`}>
+            {
+              standard.itemInfo.map((item, i) => {
+                return <Item key={i} {...item} />
+              })
+            }
+          </Slider>
+          <Slider {...sliderParams} className={`slick-slider ${spot.className}`}>
+            {
+              spot.itemInfo.map((item, i) => {
+                return <Item key={i} {...item} />
+              })
+            }
+          </Slider>
         </Section>
         <Line />
         <Section label="Super Pink" title="문화예술계의 새싹을 소개해드립니다 : )">
-          <SectionSlider params={sliderParams} itemInfo={superPink.itemInfo} className={superPink.className} />
+          <Slider {...sliderParams} className={`slick-slider ${superPink.className}`}>
+            {
+              superPink.itemInfo.map((item, i) => {
+                return <Item key={i} {...item} />
+              })
+            }
+          </Slider>
         </Section>
       </Contents>
     </>
