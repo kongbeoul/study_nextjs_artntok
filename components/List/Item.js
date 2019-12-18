@@ -1,18 +1,5 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  padding: 0 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  
-  & .Item {
-    flex: none;
-    margin-bottom: 40px;
-  }
-`;
-
 const Thumb = styled.div`
   width: 152px;
   height: 152px;

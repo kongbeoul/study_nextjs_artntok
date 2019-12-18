@@ -43,7 +43,7 @@ const Section = styled.section`
     }
   }
 
-  & .slick-slider.superPink {
+  & .slick-slider.superbPink {
     & .item {
       margin-right: 16px;
     }
