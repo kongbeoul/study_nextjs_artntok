@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const Button = styled.div`
   width: 100%;
   display: block;
   padding: 14px 0 17.5px;

@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+  & .Item {
+    flex: none;
+    margin-bottom: 40px;
+  }
+`;
+
 const Thumb = styled.div`
   width: 152px;
   height: 152px;
@@ -54,7 +67,7 @@ const Display = styled.span`
 
 export default ({ thumbs, name, engName, genre, display }) => {
   return (
-    <div className="TabItem">
+    <div className="Item">
       <Thumb><img src={ thumbs } /></Thumb>
       <Description>
         <Name>{ name }</Name>

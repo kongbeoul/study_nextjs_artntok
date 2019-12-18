@@ -29,8 +29,6 @@ const ArtistContainerInner = styled.div`
   overflow-y: auto;
 `
 
-
-
 const artistData = [{
   id: "001",
   user: {
