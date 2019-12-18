@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Logo = styled.a`
+const Logo = styled.span`
   width: 107px;
   height: 17px;
   display: block;

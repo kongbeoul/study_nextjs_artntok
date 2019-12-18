@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { Icon, Line } from '../Styled';
 import UserInfo from './UserInfo';
 import QuickMenu from './QuickMenu';
 import NavigationMenu from './NavigationMenu';
+import { HeaderContext, TOGGLE_NAVIGATION } from '../../context';
 
 const Navigation = styled.nav`
   width: 100%;
@@ -34,7 +35,7 @@ const Close = styled(Icon.withComponent("button"))`
   right: 20px;
 `;
 
-export default ({ visible, onVisible }) => {
+export default () => {
   const [ loggedIn, setLoggedIn ] = useState(false);
   const [ height, setHeight ] = useState(0);
 
@@ -49,6 +50,9 @@ export default ({ visible, onVisible }) => {
     setHeight(window.innerHeight - (height + 10));
   }, [])
 
+  const { state, dispatch } = useContext(HeaderContext);
+  const { visible } = state;
+
   return (
     <Navigation id="nav" className={ visible ? 'active' : '' }>
       <Link href="/">
@@ -58,7 +62,7 @@ export default ({ visible, onVisible }) => {
       <QuickMenu ref={quickMenuRef} />
       <Line />
       <NavigationMenu height={height} />
-      <Close type="button" url="/images/common/btn_close@3x.png" onClick={onVisible}/>
+      <Close type="button" url="/images/common/btn_close@3x.png" onClick={() => dispatch({ type: TOGGLE_NAVIGATION })}/>
     </Navigation>
   )
 }

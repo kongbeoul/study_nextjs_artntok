@@ -1,15 +1,9 @@
 import styled from 'styled-components';
-import classNames from 'classnames';
 import Icon from './Icon';
 
-const Location = styled(Icon.withComponent("button"))`
-  background-image: url(/images/common/ico_location.png);
+const Location = styled(Icon)`
+  background-image: ${ props => props.main ? 'url(/images/common/ico_location.png)' : 'url(/images/common/ico_location_bk@3x.png)' };
 
-  &.active {
-    background-image: url(/images/common/ico_location_bk@3x.png);
-  }
 `;
 
-export default ({ active }) => {
-  return <Location className={classNames('Location', { active })}/>
-}
+export default Location;

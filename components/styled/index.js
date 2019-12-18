@@ -5,7 +5,14 @@ import Line from './Line';
 import Menu from './Menu';
 import Search from './Search';
 import Location from './Location';
-import Title from './Title'
+import Title, { SmallTitle } from './Title'
+import InlineBox from './InlineBox';
+import Prev from './Prev';
+import Art from './Art';
+import Heart from './Heart';
+import Share from './Share';
+import Alert from './Alert';
+import NoItem from './NoItem';
 
 export {
   Logo,
@@ -14,5 +21,13 @@ export {
   Menu,
   Search,
   Location,
-  Title
+  Title,
+  SmallTitle,
+  InlineBox,
+  Prev,
+  Art,
+  Heart,
+  Share,
+  Alert,
+  NoItem
 }

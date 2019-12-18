@@ -1,9 +1,13 @@
 import Tabs from './Tabs';
-import Content from './Content';
+import TabButtonWrapper from './TabButtonWrapper';
+import Button from './Button';
+import TabPanel from './TabPanel';
 import Item from './Item';
 
 export {
   Tabs,
-  Content,
+  TabButtonWrapper,
+  Button,
+  TabPanel,
   Item
 }

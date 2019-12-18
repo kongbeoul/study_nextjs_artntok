@@ -20,7 +20,7 @@ const Heart = styled.button`
     margin-left: 5px;
     font-family: 'Roboto';
     font-size: 12px;
-    color: #ddd;
+    color: ${ props => props.color ? props.color : '#ddd' };
     vertical-align: middle;
   }
 
@@ -30,7 +30,7 @@ const Heart = styled.button`
   }
 `;
 
-export default memo(({ liked, count }) => {
+export default memo(({ liked, count, color }) => {
   const [ like, setLike ] = useState(liked);
 
   const handleChange = useCallback(e => {
@@ -40,6 +40,7 @@ export default memo(({ liked, count }) => {
   
   return (
     <Heart 
+      color={color}
       className={ like ? 'active' : '' }
       onClick={handleChange}
     >

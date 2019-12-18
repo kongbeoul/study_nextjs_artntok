@@ -1,4 +1,3 @@
-import React, { memo } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -14,10 +13,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default memo(({ children }) => {
-  return (
-    <Wrapper>
-      { children }
-    </Wrapper>
-  )
-});
+export default Wrapper;

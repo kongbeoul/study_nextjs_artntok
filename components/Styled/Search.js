@@ -1,15 +1,9 @@
 import styled from 'styled-components';
-import classNames from 'classnames';
 import Icon from './Icon';
 
-const Search = styled(Icon.withComponent("button"))`
-  background-image: url(/images/common/ico_finder.png);
+const Search = styled(Icon)`
+  background-image: ${ props => props.main ? 'url(/images/common/ico_finder.png)' : 'url(/images/common/ico_finder_bk@3x.png)' };
 
-  &.active {
-    background-image: url(/images/common/ico_finder_bk@3x.png);
-  }
 `;
 
-export default ({ active }) => {
-  return <Search className={classNames('Search', { active })} />
-}
+export default Search;

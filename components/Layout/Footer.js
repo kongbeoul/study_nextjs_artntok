@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-export const footerMaxHeight = 97;
-
 const Footer = styled.footer`
-  max-height: ${footerMaxHeight}px;
+  max-height: 97px;
   padding: 26.5px 0 37px;
   box-sizing: border-box;
   border-top: 1px solid #ededed;
