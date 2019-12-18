@@ -73,7 +73,7 @@ const ArtistDetail = () => {
 
 
   const artist = artistData.filter(v => {
-    return v.id === detail
+    return v.id === '001'
   });
 
   return (
