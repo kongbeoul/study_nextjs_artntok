@@ -1,3 +1,5 @@
+import { ViewProvider } from '../../../../context/view';
+import { RepresentProvider } from '../../../../context/represent';
 import Template from '../../../../components/View';
 
 const me = {
@@ -12,20 +14,32 @@ const userData = [{
   category: '동양화',
   birth: 1991,
   url: 'www.artntok.com',
-  display: false,
   artCount: 24,
   likeCount: 12,
+  display: false,
+  displayInfo: '',
+  history : {
+    edu: ['한국예술종합학교 동양화 전공 졸업'],
+    description: {
+      person: ['2016 김지희 초대전 Floating Wonderland.'],
+      group: ['이상한 나라의 미술관 : Paradise', '까치와 호랑이', 'ART LAB [표갤러리 남산 본관]', '100 Albums 100 Artists', 'LA Art Show [LA]']
+    },
+  }
 }];
 
 const View = ({ info, me }) => {
   return (
-    <Template 
-      info={info}
-      me={me} 
-      title="ARTIST" 
-      href="/artists/[filter]" 
-      as="/artists/all" 
-    />
+    <ViewProvider>
+      <RepresentProvider>
+        <Template 
+          info={info}
+          me={me} 
+          title="ARTIST" 
+          href="/artists/[filter]" 
+          as="/artists/all" 
+        />
+      </RepresentProvider>
+    </ViewProvider> 
   )
 }
 

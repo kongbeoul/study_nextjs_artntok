@@ -1,35 +1,23 @@
-import styled from 'styled-components';
+import { useContext } from 'react';
+import { ViewContext } from '../../context/view';
 import Layout from '../Layout';
-import Container from '../Layout/Container';
 import ViewHeader from './ViewHeader';
-import Visual from './Visual';
-import ViewInfo from './ViewInfo';
+import ViewFrame from './ViewFrame';
 import ViewBottom from './ViewBottom';
-
-const InfoWrapper = styled.div`
-  width: 89vw;
-  height: 77vh;
-  padding: 50px 0 0 30px;
-  box-sizing: border-box;
-  position: absolute;
-  right: 0;
-  top: 406px;
-  z-index: 50;
-  background-color: #fff;
-`;
-
+import ThumbsSlider from './ThumbsSlider';
 
 export default ({ info, me, title, href, as: _as }) => {
+  const { state } = useContext(ViewContext);
+  const { visible } = state;
+
   return (
     <Layout>
       <ViewHeader title={title} href={href} as={_as} />
-      <Container paddingTop="0">
-        <Visual info={info} />
-        <InfoWrapper>
-          <ViewInfo {...info} />
-        </InfoWrapper>
-      </Container>
+      <ViewFrame info={info} />
       <ViewBottom me={me} info={info} color="#333"/>
+      {
+        visible && <ThumbsSlider />
+      }
     </Layout>
   )
 }

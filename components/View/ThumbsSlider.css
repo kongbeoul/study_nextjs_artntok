@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+.ThumbsSlider .slick-dots {
+  font-size: 0;
+}
+.ThumbsSlider .slick-dots > li {
+   width: 8px;
+   height: 8px;
+   display: inline-block;
+   background-color: #999;
+   border-radius: 4px;
+   transition: 350ms width ease;
+   vertical-align: middle;
+}
+
+.ThumbsSlider .slick-dots > li + li {
+  margin-left: 15px;
+}
+
+.ThumbsSlider .slick-dots .slick-active {
+  width: 16px;
+  background-color: #fff;
+}

@@ -13,6 +13,7 @@ import Heart from './Heart';
 import Share from './Share';
 import Alert from './Alert';
 import NoItem from './NoItem';
+import Dimmed from './Dimmed';
 
 export {
   Logo,
@@ -29,5 +30,6 @@ export {
   Heart,
   Share,
   Alert,
-  NoItem
+  NoItem,
+  Dimmed
 }

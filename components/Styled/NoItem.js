@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import Alert from './Alert';
 
 const NoItem = styled.div`
-  min-width: 190px;
   display: inline-block;
-  margin: 39px auto 0;
+  
   & .Alert {
     margin: 0 auto;
   }

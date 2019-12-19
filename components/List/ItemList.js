@@ -20,17 +20,17 @@ export default memo(({ data, page }) => {
   const link = page.substr(0, page.length - 1);
   return (
     <Wrapper>
-    {
-      data.map(({ id, ...item}) => {
-        return (
-          <Link key={id} href={`/view/${link}/[id]`} as={`/view/${link}/${id}`}>
-            <a>
-              <Item {...item} />
-            </a>
-          </Link>
-        )
-      })
-    }
+      {
+        data.map(({ id, ...item}) => {
+          return (
+            <Link key={id} href={`/view/${link}/[id]`} as={`/view/${link}/001`}>
+              <a>
+                <Item {...item} />
+              </a>
+            </Link>
+          )
+        })
+      }
     </Wrapper>
   )
 })

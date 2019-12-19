@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ArtistInfo = styled.div`
   width: 100%;
-  padding-bottom: 72px;
+  padding: 0 30px;
   box-sizing: border-box;
 
   & .Label {
