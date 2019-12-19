@@ -5,12 +5,12 @@ import Visual from './VisualSlider';
 import MainFrame from './MainFrame';
 import Footer from '../Layout/Footer';
 
-export default memo(({ premium, standard, spot, superbPink }) => {
+export default memo(({ exhibition, premium, standard, spot, superbPink }) => {
   return (
     <Layout>
       <Header />
       <Fragment>
-        <Visual />
+        <Visual exhibition={exhibition} />
         <MainFrame 
           premium={premium}
           standard={standard}

@@ -41,13 +41,14 @@ const InfoWrapper = styled.div`
 
 
 export default memo(({ info }) => {
+  const { place, generalOutline, locationInfo } = info
   return (
     <Container paddingTop="0">
       <Visual info={info} />
       <InfoWrapper>
         <div className="LineBox" />
         <ExhibitionInfo {...info} />
-        <ExhibitionInfoTabs selectedIndex={0} commentCount={info.commentCount}/>
+        <ExhibitionInfoTabs selectedIndex={0} place={place} data={[generalOutline, locationInfo]} commentCount={info.commentCount}/>
       </InfoWrapper>
     </Container>
   )

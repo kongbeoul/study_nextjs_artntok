@@ -14,6 +14,7 @@ import Share from './Share';
 import Alert from './Alert';
 import NoItem from './NoItem';
 import Dimmed from './Dimmed';
+import Write from './Write';
 
 export {
   Logo,
@@ -32,5 +33,6 @@ export {
   Share,
   Alert,
   NoItem,
-  Dimmed
+  Dimmed,
+  Write
 }

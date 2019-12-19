@@ -46,12 +46,7 @@ const Tab = styled.button`
     margin-left: 30px;
   }
 
-  & > .count {
-    font-family: 'Roboto';
-    font-size: 12px;
-    color: #999;
-    vertical-align: middle;
-  }
+  
 `;
 
 export default Tab;
