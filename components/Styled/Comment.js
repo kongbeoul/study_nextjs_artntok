@@ -9,7 +9,9 @@ const Comment = styled.button`
     width: 20px;
     height: 20px;
     display: inline-block;
-    background: url(/images/common/ico_talk.png) 0 0 no-repeat;
+    background: ${
+      props => props.color ? 'url(/images/common/ico_talk_bk@3x.png) 0 0 no-repeat;' : 'url(/images/common/ico_talk.png) 0 0 no-repeat'
+    };
     background-size: 100% auto;
     vertical-align: middle;
   }
@@ -19,14 +21,14 @@ const Comment = styled.button`
     margin-left: 5px;
     font-family: 'Roboto';
     font-size: 12px;
-    color: #ddd;
+    color: ${ props => props.color ? props.color : '#ddd' };
     vertical-align: middle;
   }
 `;
 
-export default ({ count }) => {
+export default ({ count, color }) => {
   return (
-    <Comment>
+    <Comment color={color}>
       <span>{ count }</span>
     </Comment>
   )

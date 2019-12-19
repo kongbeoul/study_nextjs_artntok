@@ -4,7 +4,7 @@ const InlineBox = styled.div`
   font-size: 0;
 
   & > * {
-    display: inline-block;
+    display: inline-block !important;
     vertical-align: middle;
   }
 

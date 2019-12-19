@@ -1,11 +1,10 @@
 import { useState, useMemo, useCallback, useContext, memo } from 'react';
-import { ViewContext } from '../../context/view';
 import { RepresentContext } from '../../context/represent'
 import cx from 'classnames';
 import { Tabs, TabButtons, Tab, TabPanel } from '../Tab';
 import { NoItem } from '../Styled';
-import History from './History';
-import Represent from './Represent';
+import ArtistHistory from './ArtistHistory';
+import ArtistRepresent from './ArtistRepresent';
 
 const anchors = ['전시정보', '작가약력', '대표작품'];
 
@@ -26,13 +25,13 @@ export default memo(({ selectedIndex, data }) => {
   } else if(index === 1) {
     if(history) {
       const { edu, description } = history;
-      Pannel = <History edu={edu} description={description} />
+      Pannel = <ArtistHistory edu={edu} description={description} />
     } else {
       Pannel = <NoItem text={anchors[index].substr(0, 2)}/>
     }
   } else {
     if(represent) {
-      Pannel = <Represent represent={represent} />
+      Pannel = <ArtistRepresent represent={represent} />
     } else {
       Pannel = <NoItem text={anchors[index].substr(0, 2)}/>
     }

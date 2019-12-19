@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import Logo from './Logo';
 import Icon from './Icon';
 import Line from './Line';
@@ -10,6 +9,7 @@ import InlineBox from './InlineBox';
 import Prev from './Prev';
 import Art from './Art';
 import Heart from './Heart';
+import Comment from './Comment';
 import Share from './Share';
 import Alert from './Alert';
 import NoItem from './NoItem';
@@ -28,6 +28,7 @@ export {
   Prev,
   Art,
   Heart,
+  Comment,
   Share,
   Alert,
   NoItem,

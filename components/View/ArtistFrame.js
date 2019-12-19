@@ -2,8 +2,8 @@ import { memo } from 'react';
 import styled from 'styled-components'
 import Container from '../Layout/Container';
 import Visual from './Visual';
-import ViewInfo from './ViewInfo';
-import InfoTabs from './InfoTabs';
+import ArtistInfo from './ArtistInfo';
+import AtristInfoTabs from './AtristInfoTabs';
 
 const InfoWrapper = styled.div`
   width: 89vw;
@@ -47,8 +47,8 @@ export default memo(({ info }) => {
       <Visual info={info} />
       <InfoWrapper>
         <div className="LineBox" />
-        <ViewInfo {...info} />
-        <InfoTabs selectedIndex={0} data={[displayInfo, history]} />
+        <ArtistInfo {...info} />
+        <AtristInfoTabs selectedIndex={0} data={[displayInfo, history]} />
       </InfoWrapper>
     </Container>
   )

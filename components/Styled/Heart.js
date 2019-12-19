@@ -10,7 +10,9 @@ const Heart = styled.button`
     width: 20px;
     height: 20px;
     display: inline-block;
-    background: url(/images/common/ico_heart.png) 0 0 no-repeat;
+    background: ${
+      props => props.color ? 'url(/images/common/ico_heart_bk@3x.png) 0 0 no-repeat' : 'url(/images/common/ico_heart.png) 0 0 no-repeat'
+    };
     background-size: 100% auto;
     vertical-align: middle;
   }

@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import styled from 'styled-components';
-import { Art, Heart, InlineBox, Share } from '../Styled';
+import { Comment, Heart, InlineBox, Share } from '../Styled';
 
-const ArtistBottom = styled.div`
+const Wrapper = styled.div`
   width: 100%;
   height: 47px;
   padding: 0 20px;
@@ -31,15 +31,15 @@ const ArtistBottom = styled.div`
 
 export default memo(({ me, info }) => {
   const { liked } = me;
-  const { artCount, likeCount } = info;
+  const { commentCount, likeCount } = info;
   
   return (
-    <ArtistBottom>
+    <Wrapper>
       <InlineBox marginLeft="20">
-        <Art count={artCount} color="#333" />
+        <Comment count={commentCount} color="#333" />
         <Heart count={likeCount} liked={liked} color="#333" />
       </InlineBox>
       <Share />
-    </ArtistBottom>
+    </Wrapper>
   )
 });

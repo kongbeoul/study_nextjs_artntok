@@ -1,6 +1,6 @@
 import { ViewProvider } from '../../../../context/view';
 import { RepresentProvider } from '../../../../context/represent';
-import Template from '../../../../components/View';
+import ArtistTemplate from '../../../../components/View/ArtistTemplate';
 
 const me = {
   liked: true,
@@ -31,7 +31,7 @@ const View = ({ info, me }) => {
   return (
     <ViewProvider>
       <RepresentProvider>
-        <Template 
+        <ArtistTemplate 
           info={info}
           me={me} 
           title="ARTIST" 
