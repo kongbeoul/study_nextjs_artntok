@@ -1,5 +1,5 @@
 import React, { useState, useCallback, memo } from 'react';
-import Router from 'next/router';
+import { withRouter } from 'next/router';
 import styled from 'styled-components';
 import cx from 'classnames';
 import { Tabs, TabButtons, Tab, TabPanel } from '../Tab';
@@ -103,7 +103,7 @@ const Insert = styled.button`
 `
 
 
-export default memo(({ selectedIndex, data, place, commentCount }) => {
+export default withRouter(memo(({ selectedIndex, data, place, commentCount, router }) => {
   const [index, setIndex] = useState(selectedIndex);
   const [value, setValue] = useInput('');
   const [visible, setVisible] = useState(false);
@@ -157,7 +157,7 @@ export default memo(({ selectedIndex, data, place, commentCount }) => {
       <ExhibitionParagraph title="댓글">
         <form onSubmit={ e => {
           e.preventDefault();
-          Router.push('/view/exhibition/[id]', '/view/exhibition/001')
+          router.push('/')
         }}>
           <Textarea>
             <textarea 
@@ -202,4 +202,4 @@ export default memo(({ selectedIndex, data, place, commentCount }) => {
       </TabPanel>
     </Tabs>
   )
-});
+}));
