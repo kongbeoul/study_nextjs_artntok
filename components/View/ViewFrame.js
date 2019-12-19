@@ -48,7 +48,7 @@ export default memo(({ info }) => {
       <InfoWrapper>
         <div className="LineBox" />
         <ViewInfo {...info} />
-        <InfoTabs selectedIndex={2} data={[displayInfo, history]} />
+        <InfoTabs selectedIndex={0} data={[displayInfo, history]} />
       </InfoWrapper>
     </Container>
   )
