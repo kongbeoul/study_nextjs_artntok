@@ -29,7 +29,10 @@ const ArtistBottom = styled.div`
 `;
 
 
-export default memo(({ artCount, likeCount, liked, color }) => {
+export default memo(({ me, info, color }) => {
+  const { liked } = me;
+  const { artCount, likeCount } = info;
+  
   return (
     <ArtistBottom>
       <InlineBox marginLeft="20">

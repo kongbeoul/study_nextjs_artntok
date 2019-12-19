@@ -79,7 +79,7 @@ export default memo(({ category, name, engName, birth, url, display}) => {
       <ul className="InfoList">
         <li className="Info">
           <span>출생</span>
-          <p>{ birth }</p>
+          <p>{ birth }년</p>
         </li>
         <li className="Info">
           <span>링크</span>

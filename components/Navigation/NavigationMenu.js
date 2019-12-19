@@ -69,7 +69,7 @@ export default ({ height }) => {
           MenuItemData.map((v, i) => {
             return (
               <MenuItem key={ v + i }>
-                <Link href="/artist/[filter]" as="/artist/all">
+                <Link href="/artists/[filter]" as="/artists/all">
                   <a>{ v }</a>
                 </Link>
               </MenuItem>

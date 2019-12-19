@@ -9,12 +9,12 @@ import GenreSlider from './GenreSlider';
 import './Template.css';
 
 const anchors = [{
-  href: '/artist/[filter]',
-  as: '/artist/all',
+  href: '/artists/[filter]',
+  as: '/artists/all',
   text: '작가명',
 }, {
-  href: '/genre/[filter]',
-  as: '/genre/all',
+  href: '/categorys/[filter]',
+  as: '/categorys/all',
   text: '장르',
 }];
 
@@ -38,7 +38,7 @@ const Template = ({ page, title, data, selectedIndex }) => {
       <Container paddingTop="56">
         <LinkedList anchors={anchors} selectedIndex={selectedIndex} />
         <GenreSlider page={page} genre={genre} />
-        <ItemList data={filteredData} />
+        <ItemList data={filteredData} page={page} />
       </Container>
     </Layout>
   )

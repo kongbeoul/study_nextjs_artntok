@@ -45,7 +45,7 @@ const data = [{
 }];
 
 const Artist = () => {
-  return <Template page="artist" title='ARTIST' data={data} selectedIndex={0} />
+  return <Template page="artists" title='ARTIST' data={data} selectedIndex={0} />
 }
 
 

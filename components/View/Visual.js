@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const ArtistVisual = styled.div`
@@ -25,11 +25,11 @@ const ArtistVisual = styled.div`
   }
 `;
 
-
-export default memo(({ src, alt }) => {
+export default memo(({ info }) => {
+  const { src, name } = info
   return (
     <ArtistVisual>
-      <img src={src} alt={alt} />
+      <img src={src} alt={name} />     
     </ArtistVisual>
   )
 })
