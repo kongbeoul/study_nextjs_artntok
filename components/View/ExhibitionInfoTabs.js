@@ -5,7 +5,7 @@ import cx from 'classnames';
 import { Tabs, TabButtons, Tab, TabPanel } from '../Tab';
 import ExhibitionParagraph from './ExhibitionParagraph';
 import { Write } from '../Styled';
-import useInput from '../../hooks/useInput';
+
 
 const anchors = ['전시개요', '장소', '댓글 TOK'];
 
@@ -105,7 +105,7 @@ const Insert = styled.button`
 
 export default withRouter(memo(({ selectedIndex, data, place, commentCount, router }) => {
   const [index, setIndex] = useState(selectedIndex);
-  const [value, setValue] = useInput('');
+  const [value, setValue] = useState('');
   const [visible, setVisible] = useState(false);
   const handleSelect = useCallback(i => {
     setIndex(i);
@@ -157,12 +157,12 @@ export default withRouter(memo(({ selectedIndex, data, place, commentCount, rout
       <ExhibitionParagraph title="댓글">
         <form onSubmit={ e => {
           e.preventDefault();
-          router.push('/')
+          setValue('');
         }}>
           <Textarea>
             <textarea 
               value={value} 
-              onChange={setValue}
+              onChange={e => setValue(e.target.value)}
               onFocus={() => setVisible(true) }
               placeholder="작품에 관한 의견을 들려주세요 :D"
               placeholdertextcolor="#aaa"
