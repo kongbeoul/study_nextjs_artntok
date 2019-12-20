@@ -25,7 +25,7 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700|Roboto:300,400,500&display=swap&subset=korean" rel="stylesheet" />
           {this.props.styleTags}
