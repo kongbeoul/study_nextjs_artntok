@@ -1,5 +1,4 @@
-import React, { useState, useCallback, memo } from 'react';
-import { withRouter } from 'next/router';
+import React, { useState, useCallback, useReducer, memo } from 'react';
 import styled from 'styled-components';
 import cx from 'classnames';
 import { Tabs, TabButtons, Tab, TabPanel } from '../Tab';
@@ -100,18 +99,114 @@ const Insert = styled.button`
   color: #fff;
   text-align: center;
   line-height: 2;
-`
+`;
+
+const CommentWrapper = styled.div`
+  margin-top: 30px;
+`;
+
+const Comment = styled.div`
+  padding: 15px 0;
+  box-sizing: border-box;
+  border-top: 1px solid #ddd;
+  position: relative;
+
+  & .Profile {
+    font-size: 0;
+
+    & > .Thumb {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      vertical-align: middle;
+
+      & > img {
+        width: 100%;
+      }
+    }
+
+    & > .Name {
+      display: inline-block;
+      margin-left: 15px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #333;
+      vertical-align: middle;
+    }
+  }
+
+  & .Text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    word-break: keep-all;
+  }
+
+  & .Date {
+    display: block;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    font-family: 'Roboto';
+    font-size: 12px;
+    color: #999;
+  }
+`;
+
+const ADD_COMMENT = 'ADD_COMMENT';
+
+const initialState = {
+  comments: [{
+    id: 0,
+    profile: '/images/temp/sample-comment-01@3x.png',
+    name: 'sehun412',
+    comment: '이 작가에게 빨간 벤치는 소중한 기억인 것 같다. 나도 소중한 기억을 사진이나 그림으로 만들어두고 오랫동안 간직하고 싶다.',
+    date: '2019.12.19'
+  }]
+};
+
+let reducer = (state, action) => {
+  switch(action.type) {
+    case ADD_COMMENT: 
+      return {
+        ...state,
+        comments: [ action.comment, ...state.comments]
+      }
+    default:
+      return state;
+  }
+}
 
 
-export default withRouter(memo(({ selectedIndex, data, place, commentCount, router }) => {
+export default memo(({ selectedIndex, data, place, commentCount }) => {
   const [index, setIndex] = useState(selectedIndex);
   const [value, setValue] = useState('');
   const [visible, setVisible] = useState(false);
   const handleSelect = useCallback(i => {
     setIndex(i);
-  }, [])
+  }, []);
+
+  const handleSubmit = useCallback(e => {
+    e.preventDefault();
+
+    const { id } = state.comments[0];
+
+    dispatch({
+      type: ADD_COMMENT,
+      comment: {
+        id: id + 1,
+        profile: '/images/temp/sample-comment-02@3x.png',
+        name: 'sehun412',
+        comment: value,
+        date: '2019.12.19'
+      }
+    })
+    setValue('');
+  })
 
   const [ generalOutline, locationInfo ] = data;
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   let Pannel;
   
@@ -145,7 +240,7 @@ export default withRouter(memo(({ selectedIndex, data, place, commentCount, rout
         <ExhibitionParagraph title={ place.name }>
           <React.Fragment>
             <RoadMap>
-              <img src="/images/temp/sample-load@3x.png" alt={`${ place.name} 지도`} />
+              <img src="/images/temp/sample-road@3x.png" alt={`${ place.name} 지도`} />
             </RoadMap>
             { rows }
           </React.Fragment>
@@ -155,10 +250,7 @@ export default withRouter(memo(({ selectedIndex, data, place, commentCount, rout
   } else {
     Pannel = (
       <ExhibitionParagraph title="댓글">
-        <form onSubmit={ e => {
-          e.preventDefault();
-          setValue('');
-        }}>
+        <form onSubmit={handleSubmit}>
           <Textarea>
             <textarea 
               value={value} 
@@ -171,6 +263,22 @@ export default withRouter(memo(({ selectedIndex, data, place, commentCount, rout
           </Textarea>
           <Insert visible={visible}>등록</Insert>
         </form>
+        <CommentWrapper>
+          {
+            state.comments.map(({ id, profile, name, comment, date }) => {
+              return (
+                <Comment key={id}>
+                  <div className="Profile">
+                    <span className="Thumb"><img src={profile} alt={name} /></span>
+                    <p className="Name">{name}</p>
+                  </div>
+                  <p className="Text">{ comment }</p>
+                  <span className="Date">{ date }</span>
+                </Comment>
+              )
+            })
+          }
+        </CommentWrapper>
       </ExhibitionParagraph>
     )
   }
@@ -202,4 +310,4 @@ export default withRouter(memo(({ selectedIndex, data, place, commentCount, rout
       </TabPanel>
     </Tabs>
   )
-}));
+});
